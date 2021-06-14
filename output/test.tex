@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz, xcolor}
+\usetikzlibrary{positioning}
+\tikzset{state/.style={draw, circle, inner sep=0pt, minimum size=7mm, fill=white, line width=1pt}}
+\begin{document}
+	\begin{tikzpicture}
+	\node[state] (x0) at (0,0) {$x_0$};
+	\node[state, draw = red] (x4) [below right = 1.0cm and 4.0cm of x0] {$x_4$};
+	\node[state, draw = red] (x1) [below left = 1.0cm and 4.0cm of x0] {$x_1$};
+	\node[state] (x6) [below right = 2.0cm and 2.0cm of x4] {$x_6$};
+	\node[state] (x5) [below left = 2.0cm and 2.0cm of x4] {$x_5$};
+	\node[state] (x3) [below right = 2.0cm and 2.0cm of x1] {$x_3$};
+	\node[state] (x2) [below left = 2.0cm and 3.0cm of x1] {$x_2$};
+	\node[state, draw = red] (x8) [below left = 2.0cm and 2.0cm of x3] {$x_8$};
+	\node[state, draw = red] (x7) [below right = 2.0cm and 2.0cm of x6] {$x_7$};
+	\draw (x0) -- (x1);
+	\draw (x1) -- (x2);
+	\draw (x1) -- (x3);
+	\draw (x0) -- (x4);
+	\draw (x4) -- (x5);
+	\draw (x4) -- (x6);
+	\draw (x6) -- (x7);
+	\draw (x3) -- (x8);
+	\end{tikzpicture}
+\end{document}
